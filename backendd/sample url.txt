@@ -1,1 +1,0 @@
-http://localhost:8080/api/movies?page=1&limit=14&genre=Drama&sort=year,desc&search=god
