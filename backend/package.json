@@ -1,12 +1,12 @@
 {
-  "name": "server",
+  "name": "movieapp",
   "version": "1.0.0",
   "description": "pagination, filter and sorting",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node index.js"
   },
-  "author": "Jahangeer",
+  "author": "KrunalBhandekar",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
