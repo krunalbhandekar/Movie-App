@@ -1,10 +1,10 @@
-const router=require("express").Router()
-const Movie=require("../models/Movie")
-const movies =require("../config/movies.json")
+const router = require("express").Router();
+const Movie = require("../models/Movie");
+// const movies = require("../config/movies.json");
 
-router.get("/movies",async(req,res)=>{
-    try{
-        const page = parseInt(req.query.page) - 1 || 0;
+router.get("/movies", async (req, res) => {
+	try {
+		const page = parseInt(req.query.page) - 1 || 0;
 		const limit = parseInt(req.query.limit) || 5;
 		const search = req.query.search || "";
 		let sort = req.query.sort || "rating";
@@ -57,24 +57,23 @@ router.get("/movies",async(req,res)=>{
 		};
 
 		res.status(200).json(response);
-    }
-    catch (err) {
+	} catch (err) {
 		console.log(err);
 		res.status(500).json({ error: true, message: "Internal Server Error" });
 	}
-})
+});
 
-const insertMovies = async () => {
-    try {
-        const docs = await Movie.insertMany(movies);
-        return Promise.resolve(docs);
-    } catch (err) {
-        return Promise.reject(err)
-    }
-};
+// const insertMovies = async () => {
+//     try {
+//         const docs = await Movie.insertMany(movies);
+//         return Promise.resolve(docs);
+//     } catch (err) {
+//         return Promise.reject(err)
+//     }
+// };
 
-insertMovies()
-    .then((docs) => console.log(docs))
-    .catch((err) => console.log(err))
+// insertMovies()
+//     .then((docs) => console.log(docs))
+//     .catch((err) => console.log(err))
 
 module.exports = router;

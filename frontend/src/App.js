@@ -11,18 +11,22 @@ const base_url = "http://localhost:8080/api/movies";
 
 function App() {
 	const [obj, setObj] = useState({});
+	// console.log('obj:', obj)
 	const [sort, setSort] = useState({ sort: "rating", order: "desc" });
+	// console.log('sort:', sort)
 	const [filterGenre, setFilterGenre] = useState([]);
+	// console.log('filterGenre:', filterGenre)
 	const [page, setPage] = useState(1);
+	// console.log('page:', page)
 	const [search, setSearch] = useState("");
+	// console.log('search:', search)
 
 	useEffect(() => {
 		const getAllMovies = async () => {
 			try {
-				const url = `${base_url}?page=${page}&sort=${sort.sort},${
-					sort.order
-				}&genre=${filterGenre.toString()}&search=${search}`;
+				const url = `${base_url}?page=${page}&sort=${sort.sort},${sort.order}&genre=${filterGenre.toString()}&search=${search}`;
 				const { data } = await axios.get(url);
+				// console.log('data:', data)
 				setObj(data);
 			} catch (err) {
 				console.log(err);

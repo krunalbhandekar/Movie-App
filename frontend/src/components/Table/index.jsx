@@ -1,6 +1,7 @@
 import styles from "./styles.module.css";
 
 const Table = ({ movies }) => {
+	
 	return (
 		<div className={styles.container}>
 			<div className={styles.heading}>
